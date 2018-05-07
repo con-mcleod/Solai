@@ -1,0 +1,225 @@
+/*
+blue color: #4eaede;
+orange color: #ffa800;
+*/
+
+
+html {
+	position: relative;
+	min-height: 100%;
+}
+body {
+	font-size: .875rem;
+	margin-bottom: 60px;
+}
+
+.feather {
+	width: 16px;
+	height: 16px;
+	vertical-align: text-bottom;
+}
+
+/*
+Sidebar
+*/
+
+.sidebar {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 100; /* Behind the navbar */
+	padding: 0;
+	box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+.sidebar-sticky {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 48px; /* Height of navbar */
+	height: calc(100vh - 48px);
+	padding-top: .5rem;
+	overflow-x: hidden;
+	overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+.sidebar .nav-link {
+	font-weight: 500;
+	color: #333;
+}
+.sidebar .nav-link .feather {
+	margin-right: 4px;
+	color: #999;
+}
+.sidebar .nav-link.active {
+	color: #007bff;
+}
+.sidebar .nav-link:hover .feather,
+.sidebar .nav-link.active .feather {
+	color: inherit;
+}
+.sidebar-heading {
+	font-size: .75rem;
+	text-transform: uppercase;
+}
+
+/*
+Logged in Navbar
+*/
+
+.loggedin .navbar-brand {
+	padding-top: .75rem;
+	padding-bottom: .75rem;
+	font-size: 1rem;
+	background-color: rgba(0, 0, 0, .25);
+	box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+}
+.loggedin .navbar .form-control {
+	padding: .75rem 1rem;
+	border-width: 0;
+	border-radius: 0;
+}
+.loggedin .form-control-dark {
+	color: #fff;
+	background-color: rgba(255, 255, 255, .1);
+	border-color: rgba(255, 255, 255, .1);
+}
+.loggedin .form-control-dark:focus {
+	border-color: transparent;
+	box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+}
+
+/* 
+Login Page
+*/
+body.login-page {
+	background-color: #f7f9fb;
+	padding-bottom: 60px;
+}
+.login-page .brand {
+	width: 90px;
+	height: 90px;
+	overflow: hidden;
+	border-radius: 50%;
+	margin: 0 auto;
+	margin: 40px auto;
+	box-shadow: 0 0 40px rgba(0,0,0,.05);
+}
+.login-page .brand img {
+	width: 100%;
+}
+.login-page .card-wrapper {
+	width: 400px;
+	margin: 0 auto;
+}
+.login-page .card {
+	border-color: transparent;
+	box-shadow: 0 0 40px rgba(0,0,0,.05);
+}
+.login-page .card.fat {
+	padding: 10px;
+}
+.login-page .card .card-title {
+	margin-bottom: 30px;
+}
+.login-page .form-control {
+	border-width: 2.3px;
+}
+.login-page .form-group label {
+	width: 100%;
+}
+.login-page .btn.btn-block {
+	padding: 12px 10px;
+}
+.login-page .margin-top20 {
+	margin-top: 20px;
+}
+.login-page .no-margin {
+	margin: 0;
+}
+
+@media screen and (max-width: 425px) {
+	.login-page .card-wrapper {
+		width: 90%;
+		margin: 0 auto;
+	}
+}
+@media screen and (max-width: 320px) {
+	.login-page .card.fat {
+		padding: 0;
+	}
+
+	.login-page .card.fat .card-body {
+		padding: 15px;
+	}
+}
+
+/* 
+HOME PAGE
+*/
+:root {
+	--jumbotron-padding-y: 3rem;
+}
+.jumbotron {
+	padding-top: var(--jumbotron-padding-y);
+	padding-bottom: var(--jumbotron-padding-y);
+	margin-bottom: 0;
+	/*background-color: #fff;*/
+	background-image: url("solar3_bg.jpeg");
+	background-size: cover;
+	height: 93vh;
+	background-position: center center;
+}
+@media (min-width: 768px) {
+	.jumbotron {
+	padding-top: calc(var(--jumbotron-padding-y) * 2);
+	padding-bottom: calc(var(--jumbotron-padding-y) * 2);
+	}
+}
+.jumbotron p {
+	text-decoration-color: white;
+}
+.jumbotron p:last-child {
+	margin-bottom: 0;
+}
+.jumbotron-heading {
+	font-weight: 300;
+}
+.jumbotron .container {
+	max-width: 40rem;
+}
+.box-shadow { 
+	box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); 
+}
+
+.about {
+	padding-top: var(--jumbotron-padding-y);
+	padding-bottom: var(--jumbotron-padding-y);
+	margin-bottom: 0;
+	background-color: #fff;
+	background-size: cover;
+	height: 93vh;
+	background-position: center center;
+}
+
+.experience {
+	padding-top: var(--jumbotron-padding-y);
+	padding-bottom: var(--jumbotron-padding-y);
+	margin-bottom: 0;
+	background-color: #ffa;
+	background-size: cover;
+	height: 93vh;
+	background-position: center center;
+}
+
+/*
+Footer
+*/
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	/* Set the fixed height of the footer here */
+	height: 60px;
+	line-height: 60px; /* Vertically center the text there */
+	background-color: #f5f5f5;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Solai</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link href="{{url_for('static', filename='bootstrap_css/bootstrap.css')}}" rel="stylesheet" type="text/css"/>
+	<link href="{{url_for('static', filename='bootstrap_css/bootstrap-theme.css')}}" rel="stylesheet" type="text/css"/>
+	<link href="{{url_for('static', filename='main.css')}}" rel="stylesheet" type="text/css"/>
+	<script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+</head>
+
+<body>
+
+	<nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
+		<div class="container">
+			<a class="navbar-brand" href="{{url_for('home')}}">CM</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><a class="nav-link" href="{{url_for('home')}}">Home</a></li>
+					<li class="nav-item"><a class="nav-link" href="{{url_for('about')}}">About</a></li>
+					<li class="nav-item"><a class="nav-link" href="{{url_for('contact')}}">Contact</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+
+	<link rel="stylesheet" href="/static/css/reset.css?q=1280549780" type="text/css" media="screen" charset="utf-8"/>
+
+	{% block body_contents %}
+
+
+	{% endblock %}
+
+	<footer class="footer">
+		<div class="container">
+			<span class="text-muted">In development by <a target="_blank" href="https://www.linkedin.com/in/conmcleod92/">Connor McLeod</a></span>
+		</div>
+	</footer>
+
+
+</body>
+</html>
