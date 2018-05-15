@@ -11,11 +11,7 @@ def home():
 
 @application.route('/about', methods=['GET', 'POST'])
 def about():
-	return render_template('solai.html')
-
-@application.route('/contact', methods=['GET', 'POST'])
-def contact():
-	return render_template('solai.html')
+	return render_template('about.html')
 
 if __name__ == "__main__":
 	application.static_folder = 'static'
