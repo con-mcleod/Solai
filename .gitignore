@@ -7,3 +7,6 @@
 # ignore env
 /eb-virtualenv
 eb-virtualenv
+
+# ignore hidden
+hidden.py

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block body_contents %}
+
+	<section class="about text-center">
+		<div class="container">
+			<form method="post">
+				<button type="button submit" name="goBack" class="btn btn-danger">
+					Go back
+				</button>
+			</form>
+			{% if ticker %}
+				<h3>{{ ticker }}</h3>
+			{% endif %}
+
+			{% if data %}
+				{% for set in data[json_type] %}
+					<p class="font-weight-bold">{{ set }}</p>
+					{% for type in data[json_type][set] %}
+						<p>
+							{{ type }}: {{ data[json_type][set][type] }}
+						</p>
+					{% endfor %}				
+				{% endfor %}
+			{% endif %}
+
+		</div>
+	</section>
+
+
+{% endblock %}
