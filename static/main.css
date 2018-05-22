@@ -80,7 +80,7 @@ HOME PAGE
 	background-position: center center;
 }
 
-.experience {
+.projects {
 	padding-top: var(--jumbotron-padding-y);
 	padding-bottom: var(--jumbotron-padding-y);
 	margin-bottom: 0;
@@ -90,7 +90,7 @@ HOME PAGE
 	background-position: center center;
 }
 
-.projects {
+.experience {
 	padding-top: var(--jumbotron-padding-y);
 	padding-bottom: var(--jumbotron-padding-y);
 	margin-bottom: 0;
