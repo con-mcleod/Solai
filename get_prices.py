@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 
 import requests, json, sys
-from hidden import *
 
 def get_response(datatype, interval, ticker):
 
 	session = requests.Session()
 	session.max_redirects = 3
-
+	
+	api_key = "3CR2W3WZA8NW8V9B"
 	url = "https://www.alphavantage.co/query"
 
 	if datatype == "Intraday":
