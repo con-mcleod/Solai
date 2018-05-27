@@ -15,6 +15,10 @@ def home():
 def about():
 	return render_template('about.html')
 
+@application.route('/smartadata', methods=['GET', 'POST'])
+def smartadata():
+	return render_template('smartadata.html')
+
 @application.route('/daytrader', methods=['GET', 'POST'])
 def daytrader():
 	

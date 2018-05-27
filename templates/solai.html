@@ -6,8 +6,58 @@
 
 		<section class="jumbotron text-center">
 			<div class="container">
-				<h1 class="jumbotron-heading text-gray">Solai</h1>
-				<p class="lead text-gray">sustainable engineering</p>
+				<div class="card">
+					<h5 class="card-header">Projects</h5>
+					<div class="card-body">
+						<p class="card-text">Here are some software projects that I am currently working on</p>
+						<div class="card-deck">
+							<div class="card">
+								<a href="{{url_for('smartadata')}}"><img class="card-img-top" src="{{url_for('static', filename='solar3_bg.jpeg')}}"}}" alt="Card image cap"></a>
+								<div class="card-body">
+									<h5 class="card-title"><a href="{{url_for('smartadata')}}">SmartaData</a></h5>
+									<p class="card-text">Remove localised weather variation from solar generation data</p>
+								</div>
+								<div class="card-footer">
+									<a href="{{url_for('smartadata')}}"><small class="text-muted">Learn more</small></a>
+								</div>
+							</div>
+							<div class="card">
+								<a href="{{url_for('daytrader')}}"><img class="card-img-top" src="{{url_for('static', filename='finance.jpg')}}" alt="Card image cap"></a>
+								<div class="card-body">
+									<h5 class="card-title"><a href="{{url_for('daytrader')}}">The Day Trader</a></h5>
+									<p class="card-text">An equity and FX real-time price tracking tool</p>
+								</div>
+								<div class="card-footer">
+									<a href="{{url_for('daytrader')}}"><small class="text-muted">Learn more</small></a>
+								</div>
+							</div>
+							<div class="card">
+								<a href="{{url_for('about')}}"><img class="card-img-top" src="{{url_for('static', filename='website.jpg')}}" alt="Card image cap"></a>
+								<div class="card-body">
+									<h5 class="card-title"><a href="{{url_for('about')}}">Solai</a></h5>
+									<p class="card-text">A scalable website built on the AWS platform</p>
+								</div>
+								<div class="card-footer">
+									<a href="{{url_for('about')}}"><small class="text-muted">Learn more</small></a>
+								</div>
+							</div>
+						</div>
+						<br>
+						<p class="card-text">These projects are currently in progress and will be updated soon</p>
+						<div class="card-deck">
+							<div class="card">
+								<img class="card-img-top" src="{{url_for('static', filename='ear.jpg')}}" alt="Card image cap">
+								<div class="card-body">
+									<h5 class="card-title">The Human Ear</h5>
+									<p class="card-text">Modelling the human ear using Matlab</p>
+								</div>
+								<div class="card-footer">
+									<small class="text-muted">Will be added soon</small>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
 
