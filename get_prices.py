@@ -1,27 +1,41 @@
 #!/usr/bin/python3
 
-import requests, json, sys
+import requests 
 
-def get_response(datatype, interval, ticker):
+def get_response(datatype, ticker, interval):
+	"""
+	:param datatype: the requested financial data type
+	:param ticker: the requested company's stock ticker
+	:param interval: the requested interval between stock prices
+	:return: Python dictionary 
+	"""
 
 	session = requests.Session()
 	session.max_redirects = 3
 	
-	api_key = "3CR2W3WZA8NW8V9B"
 	url = "https://www.alphavantage.co/query"
+	api_key = "3CR2W3WZA8NW8V9B"
+	api_symbol = str(ticker)
+	api_interval= str(interval)		# this is currently hardcoded to 60 min (1/5/15/30/60 exist)
+	api_outputSize = "compact"
 
-	if datatype == "Intraday":
+	if datatype == "Hourly":
 		api_fn = "TIME_SERIES_INTRADAY"
 	elif datatype == "Daily":
 		api_fn = "TIME_SERIES_DAILY"
 	elif datatype == "Adjusted Daily":
 		api_fn = "TIME_SERIES_DAILY_ADJUSTED"
-	elif datatype == "FX":
-		api_fn = "CURRENCY_EXCHANGE_RATE"
+	# elif datatype == "FX":
+	# 	api_fn = "CURRENCY_EXCHANGE_RATE"
+	# 	from_currency = str(input("From currency? e.g. AUD\n"))
+	# 	to_currency = str(input("To currency? e.g. USD\n"))
+	# 	data = {
+	# 		"function": api_fn,
+	# 		"apikey": api_key,
+	# 		"from_currency": from_currency,
+	# 		"to_currency": to_currency
+	# 	}
 
-	api_symbol = str(ticker)
-	api_interval = str(interval)
-	api_outputSize = "compact"
 
 	data = {
 		"function": api_fn,
@@ -33,16 +47,3 @@ def get_response(datatype, interval, ticker):
 
 	response = requests.get(url, params=data)
 	return response
-
-
-# elif datatype == "fx":
-# 	api_fn = "CURRENCY_EXCHANGE_RATE"
-# 	from_currency = str(input("From currency? e.g. AUD\n"))
-# 	to_currency = str(input("To currency? e.g. USD\n"))
-
-# 	data = {
-# 		"function": api_fn,
-# 		"apikey": api_key,
-# 		"from_currency": from_currency,
-# 		"to_currency": to_currency
-# 	}

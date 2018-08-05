@@ -147,6 +147,15 @@ HOME PAGE
 	max-width: 50rem;
 }
 
+.container > img {
+	width: 100%;
+	height: auto;
+}
+#tech_used {
+	height: 40px;
+	width: auto;
+}
+
 
 
 

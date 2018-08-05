@@ -7,10 +7,18 @@
 		<section class="smartadata text-center">
 			<div class="container">
 				<h1>SmartaData</h1>
-				<p class="lead text-blue">This tool adjusts solar generation data by removing weather variation. This gives clearer insights into the genuine performance of the solar asset</p>
-				<p>tech used: python and bash scripting, geospatial datasets, regression analysis, algorithm design</p>
-				<br>
-				<p class="lead text-blue">Information about this tool and how to use it will be added soon. In the meantime, you can see some of the older source code via <a href="https://github.com/con-mcleod/AutoReporta-SmartaData">Github</a></p>
+				<p class="lead text-blue">This tool adjusts solar generation data by removing weather variation. This gives clearer insights into the genuine performance of the solar asset.</p>
+				<p>The system is built on spatial data, taken from BOM using their free archives. This data provides accuracy of 5km to the location of interest. One day of data is visualised below:</p>
+				<img id="spatial" src="{{url_for('static', filename='spatial.png')}}" alt="Spatial_dateset">
+				<br><br>
+				<p>You can then compare actual solar generation at a site with accurate solar radiation weather data from the above map using the spatial coordinate system. An example of the correlation between the actual solar generation and the solar irradiance is shown below, using an example site from Adelaide.</p>
+				<img id="spatial" src="{{url_for('static', filename='smartSolar/solar_actual.png')}}" alt="Spatial_dateset">
+				<br><br>
+				<p>The next step is to perform linear regression on the data to determine the relationship between the weather conditions and the performance of the site using a historical test set. Using this derived relationship on future data allows an adjusted performance measure to be generated. Below shows an example that performs multiple linear regression using solar irradiance and temperature to adjust the actual solar performance.</p>
+				<img id="spatial" src="{{url_for('static', filename='smartSolar/actual_adjusted.png')}}" alt="Spatial_dateset">
+				<br><br>
+				<p>As a result, you can see the adjusted performance measure removes weather anomalies and provides a more consistent view of the assets actual performance. This can allow solar asset managers to make more informed decisions about whether an asset is genuinely experiencing technical problems or if it is just weather-driven fluctuation.</p>
+				<p>You can see the source code for this project at my <a href="https://github.com/con-mcleod/AutoReporta-SmartaData" target="blank">GitHub page</a>. This code is a little messy as the purpose at the time was fast development for testing and demonstration purposes. The program takes in any amount of solar sites' generation, takes the site address and finds it's coordinates using <a href="https://geopy.readthedocs.io/en/stable/" target="blank">GeoPy</a>, compares this with the spatial solar data from BOM, performs a regression analysis on this data and creates an adjusted performance measure. All of this is then output to an excel file for further analysis.
 			</div>
 		</section>
 

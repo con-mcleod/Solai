@@ -5,32 +5,16 @@
 	<section class="daytrader text-center">
 		<div class="container">
 			<h1>The Day Trader</h1>
-			<p class="lead text-blue">This tool grabs the selected financial data from <a href="https://www.alphavantage.co/" target="_blank">Alpha Vantage</a>. This tool is a WIP.</p>
-			<p>tech used: python, Alpha Vantage API, Pandas and NumPy</p>
-
-			
-			<h5>To retrieve data select from the options below. The output is useless at the moment, however, I am working on improving this soon.</h5>
+			<p class="lead text-blue">This tool grabs the selected financial data from <a href="https://www.alphavantage.co/" target="_blank">Alpha Vantage</a>. This tool is a WIP. Currently the tool grabs the data and plots it using Google Charts. Feel free to test this below. Further functionality is being considered and will be implemented as soon as possible!</p>
 
 			<form method="POST">
 				<div class="d-flex justify-content-center align-items-center container ">
 					<div class="form-group">
 						<select class="form-control" name="datatype">
-							<option>Intraday</option>
-							<option>Daily</option>
-							<option>Adjusted Daily</option>
+							<option>Hourly</option>
+							<option disabled>Daily</option>
+							<option disabled>Adjusted Daily</option>
 							<option disabled>FX</option>
-						</select>
-					</div>
-				</div>
-
-				<div id="interval" class="d-flex justify-content-center align-items-center container ">
-					<div class="form-group">
-						<select class="form-control" name="interval">
-							<option>1min</option>
-							<option>5min</option>
-							<option>15min</option>
-							<option>30min</option>
-							<option>60min</option>
 						</select>
 					</div>
 				</div>

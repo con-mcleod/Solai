@@ -2,22 +2,36 @@
 
 from flask import Flask, render_template, session, redirect, request, url_for, jsonify
 from get_prices import *
+from stockObject import *
+import pandas as pd
 import re
 
+
+
+
+
+
 application = Flask(__name__)
+
 
 
 @application.route('/', methods=['GET', 'POST'])
 def home():
 	return render_template('solai.html')
 
+
+
 @application.route('/about', methods=['GET', 'POST'])
 def about():
 	return render_template('about.html')
 
+
+
 @application.route('/smartadata', methods=['GET', 'POST'])
 def smartadata():
 	return render_template('smartadata.html')
+
+
 
 @application.route('/daytrader', methods=['GET', 'POST'])
 def daytrader():
@@ -26,25 +40,51 @@ def daytrader():
 
 		if "grab" in request.form:
 			datatype = request.form.get('datatype')
-			interval = request.form.get('interval')
 			ticker = request.form["ticker"]
 			
-			return redirect(url_for('datapage', datatype=datatype,interval=interval,ticker=ticker))
+			return redirect(url_for('datapage',datatype=datatype,ticker=ticker))
 
 	return render_template('daytrader.html')
 
-@application.route('/daytrader/<ticker>/<datatype>/<interval>', methods=['GET', 'POST'])
-def datapage(datatype,interval,ticker):
 
-	data = get_response(datatype, interval, ticker).json()
-	for item in data:
+
+@application.route('/daytrader/<ticker>/<datatype>', methods=['GET', 'POST'])
+def datapage(datatype,ticker):
+	"""
+	:param datatype: the requested financial data type
+	:param ticker: the requested company's stock ticker
+	"""
+
+	interval = "60min"		# this is currently hardcoded but should be a user choice
+	data_key = "Time Series (" + str(interval) + ")"
+	dataset = get_response(datatype, ticker, interval).json()
+
+	if "Error Message" in dataset:
+		return redirect(url_for('daytrader'))
+	
+	keys = dataset[data_key].keys()
+	open_vals = []
+	date_times = []
+	for key in keys:
+		date_times.append(key)
+		open_val = float(dataset[data_key][key]['1. open'])
+		open_vals.append(open_val)
+
+	for item in dataset:
 		json_type = str(item)
+
+	# create stock object
+	stockObj = stockObject(ticker, dataset)
+	# print (stockObj.data)
+	
+	datas = zip(reversed(date_times), reversed(open_vals))
+
 
 	if request.method == "POST":
 		if "goBack" in request.form:
 			return redirect(url_for('daytrader'))
 
-	return render_template('datapage.html',data=data,ticker=ticker,json_type=json_type)
+	return render_template('datapage.html',dataset=dataset,datas=datas,ticker=ticker,json_type=json_type)
 
 if __name__ == "__main__":
 	application.static_folder = 'static'
