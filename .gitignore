@@ -10,3 +10,9 @@ eb-virtualenv
 
 # ignore hidden
 hidden.py
+hidden/*
+hidden
+
+# ignore key files
+files/.api_key_get_company_info
+files/.api_key_get_prices

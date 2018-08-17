@@ -3,38 +3,49 @@
 from flask import Flask, render_template, session, redirect, request, url_for, jsonify
 from get_prices import *
 from stockObject import *
-import pandas as pd
 import re
-
-
-
-
-
 
 application = Flask(__name__)
 
 
 
+
+
+
 @application.route('/', methods=['GET', 'POST'])
 def home():
-	return render_template('solai.html')
+	"""
+	Website's landing page for www.solai.com.au
+	"""
 
+	return render_template('solai.html')
 
 
 @application.route('/about', methods=['GET', 'POST'])
 def about():
+	"""
+	Website's "About" section
+	"""
+
 	return render_template('about.html')
 
 
 
 @application.route('/smartadata', methods=['GET', 'POST'])
 def smartadata():
+	"""
+	Website's solar-adjustment tool landing page
+	"""
+
 	return render_template('smartadata.html')
 
 
 
 @application.route('/daytrader', methods=['GET', 'POST'])
 def daytrader():
+	"""
+	Website's portfolio analyst tool landing page
+	"""
 	
 	if request.method == "POST":
 
@@ -51,6 +62,7 @@ def daytrader():
 @application.route('/daytrader/<ticker>/<datatype>', methods=['GET', 'POST'])
 def datapage(datatype,ticker):
 	"""
+	Grab requested stock information and present the data using Google Charts
 	:param datatype: the requested financial data type
 	:param ticker: the requested company's stock ticker
 	"""
@@ -75,7 +87,6 @@ def datapage(datatype,ticker):
 
 	# create stock object
 	stockObj = stockObject(ticker, dataset)
-	# print (stockObj.data)
 	
 	datas = zip(reversed(date_times), reversed(open_vals))
 
@@ -85,6 +96,8 @@ def datapage(datatype,ticker):
 			return redirect(url_for('daytrader'))
 
 	return render_template('datapage.html',dataset=dataset,datas=datas,ticker=ticker,json_type=json_type)
+
+
 
 if __name__ == "__main__":
 	application.static_folder = 'static'

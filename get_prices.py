@@ -4,6 +4,7 @@ import requests
 
 def get_response(datatype, ticker, interval):
 	"""
+	Function to request data from Alpha Vantage via API call
 	:param datatype: the requested financial data type
 	:param ticker: the requested company's stock ticker
 	:param interval: the requested interval between stock prices
@@ -14,7 +15,7 @@ def get_response(datatype, ticker, interval):
 	session.max_redirects = 3
 	
 	url = "https://www.alphavantage.co/query"
-	api_key = "3CR2W3WZA8NW8V9B"
+	api_key = open('files/.api_key_get_prices').read()
 	api_symbol = str(ticker)
 	api_interval= str(interval)		# this is currently hardcoded to 60 min (1/5/15/30/60 exist)
 	api_outputSize = "compact"
